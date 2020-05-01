@@ -8,7 +8,7 @@ const routes: Routes = [
     { path: 'states', component: StateWiseDataComponent },
     { path: 'cities', component: CityWiseComponent },
     { path: 'dashboard', component: DashboardComponent },
-    { path: '**', component: StateWiseDataComponent }
+    { path: '**', component: DashboardComponent }
 ];
 
 @NgModule({

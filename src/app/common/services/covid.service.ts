@@ -15,4 +15,8 @@ export class CovidService {
   getDailyStats = () => {
       return this.http.get<any>("https://api.covid19india.org/states_daily.json");
   }
+
+  getDialyCountryStats = () => {
+      return this.http.get<any>("https://api.covid19india.org/data.json");
+  }
 }

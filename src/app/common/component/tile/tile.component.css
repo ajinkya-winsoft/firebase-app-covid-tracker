@@ -1,0 +1,16 @@
+.data-tile {
+     width: 150px;
+     /* background: #3f51b5 */
+}
+
+/* .text-white {
+    color: white;
+} */
+
+.positive {
+    color: #71B629;
+}
+
+.danger {
+    color: red;
+}

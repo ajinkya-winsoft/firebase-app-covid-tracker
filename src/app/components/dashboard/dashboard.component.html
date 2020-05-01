@@ -1,12 +1,19 @@
-<div style="display: block; padding: 20px">
-  <canvas mdbChart
-      [chartType]="chartType"
-      [datasets]="data"
-      [labels]="label"
-      [colors]="chartColors"
-      [options]="chartOptions"
-      [legend]="true"
-      (chartHover)="chartHovered($event)"
-      (chartClick)="chartClicked($event)">
-  </canvas>
+<div id="content-desktop">
+    This dashboard is best displayed on mobile. You can view city and states data on desktop without issue.
 </div>
+
+<app-country-stats></app-country-stats>
+<mat-card>
+    <div style="display: block; padding: 20px">
+      <canvas mdbChart
+          [chartType]="chartType"
+          [datasets]="data"
+          [labels]="label"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [legend]="true"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+</mat-card>

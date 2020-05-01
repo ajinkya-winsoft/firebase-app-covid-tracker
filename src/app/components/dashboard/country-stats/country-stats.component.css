@@ -1,0 +1,12 @@
+
+.country-stats {
+     background: linear-gradient(to bottom, #0000ff 10%, #6600cc 90%);
+}
+
+.color-primary {
+  color: mat-color($primary);
+}
+
+#vantajs {
+  width: auto; 
+}

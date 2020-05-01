@@ -28,7 +28,9 @@
     "chart.js": "^2.5.0",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.5.4",
+    "three": "^0.116.0",
     "tslib": "^1.10.0",
+    "vanta": "^0.5.15",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

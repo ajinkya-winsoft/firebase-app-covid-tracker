@@ -9,11 +9,6 @@ import { CovidService } from "../../common/services/covid.service";
 export class DashboardComponent implements OnInit {
     public chartType: string = 'line';
 
-    public chartDatasets: Array<any> = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'My First dataset' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'My Second dataset' }
-  ];
-
   public data: Array<any> = [];
   public covidFianlaData: Array<any> = [
       {data: [], label: "Recovered"},
@@ -23,8 +18,6 @@ export class DashboardComponent implements OnInit {
 
   public label: Array<any> = [];
   public covidDate: Array<any> = [];
-
-  public chartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
   public chartColors: Array<any> = [
       {
@@ -75,7 +68,6 @@ export class DashboardComponent implements OnInit {
     ngOnInit(): void {
         this.covidService.getDailyStats()
             .subscribe((data) => {
-                console.log(data);
                 let counter = 0;
                 data.states_daily.forEach(d => {
                     const states = Object.keys(d);
@@ -103,28 +95,6 @@ export class DashboardComponent implements OnInit {
                 });
                 this.data = this.covidFianlaData;
                 this.label = this.covidDate;
-                console.log(this.data);
-                console.log(this.label);
-                // const tempData = [];
-                // const tempLabel =[];
-                //
-                // const lastData = this.covidFianlaData.pop();
-                // const lastDate = this.covidDate.pop();
-                //
-                //  for(let i = 0; i < this.data.length; i++) {
-                //     if (i % 5 === 0) {
-                //         tempData.push(this.covidFianlaData[i]);
-                //         tempLabel.push(this.covidDate[i]);
-                //     }
-                //  }
-                //
-                //  tempData.push(lastData);
-                //  tempLabel.push(lastDate);
-                // this.data = tempData;
-                // this.label= tempLabel;
-                // console.log(this.data);
-                // console.log(this.label);
-
             });
     }
 

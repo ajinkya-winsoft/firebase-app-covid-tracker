@@ -11,13 +11,19 @@ import { MaterialModule } from './material-module';
 import { StateWiseDataComponent } from './components/state-wise-data/state-wise-data.component';
 import { CityWiseComponent } from './components/city-wise/city-wise.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CountryStatsComponent } from './components/dashboard/country-stats/country-stats.component';
+import { TileComponent } from './common/component/tile/tile.component';
+import { TreeComponent } from './components/tree/tree.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StateWiseDataComponent,
     CityWiseComponent,
-    DashboardComponent
+    DashboardComponent,
+    CountryStatsComponent,
+    TileComponent,
+    TreeComponent
   ],
   imports: [
     BrowserModule,
