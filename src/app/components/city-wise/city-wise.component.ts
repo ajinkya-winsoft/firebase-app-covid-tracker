@@ -14,7 +14,7 @@ interface data {
 @Component({
   selector: 'app-city-wise',
   templateUrl: './city-wise.component.html',
-  styleUrls: ['./city-wise.component.css']
+  styleUrls: ['./city-wise.component.scss']
 })
 export class CityWiseComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['state', 'active', 'confirmed', 'recovered', 'deceased'];

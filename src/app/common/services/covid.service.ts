@@ -11,4 +11,8 @@ export class CovidService {
   getStateWiseData = () => {
        return this.http.get<any>("https://api.covid19india.org/state_district_wise.json");
   }
+
+  getDailyStats = () => {
+      return this.http.get<any>("https://api.covid19india.org/states_daily.json");
+  }
 }

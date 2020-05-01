@@ -22,7 +22,7 @@ interface data {
 @Component({
   selector: 'app-state-wise-data',
   templateUrl: './state-wise-data.component.html',
-  styleUrls: ['./state-wise-data.component.css']
+  styleUrls: ['./state-wise-data.component.scss']
 })
 export class StateWiseDataComponent implements OnInit, AfterViewInit {
     // coviddata: any[] = [];
