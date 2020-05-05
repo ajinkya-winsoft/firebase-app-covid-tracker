@@ -1,9 +1,35 @@
 <app-country-stats></app-country-stats>
-<mat-card>
+<mat-card *ngIf="chartReady">
+    <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-icon>show_chart</mat-icon>
+        <mat-card-title>India - Total cases</mat-card-title>
+        <mat-card-subtitle>Last 30 days</mat-card-subtitle>
+    </mat-card-header>
     <div style="display: block; padding: 20px">
       <canvas mdbChart
           [chartType]="chartType"
           [datasets]="data"
+          [labels]="label"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [legend]="true"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+</mat-card>
+
+<mat-card *ngIf="chartReady">
+    <mat-card-header>
+        <mat-icon>bar_chart</mat-icon>
+        <mat-card-title>India - Daily cases</mat-card-title>
+        <mat-card-subtitle>Last 30 days</mat-card-subtitle>
+    </mat-card-header>
+    <div style="display: block; padding: 20px">
+      <canvas mdbChart
+          [chartType]="'bar'"
+          [datasets]="dailyData"
           [labels]="label"
           [colors]="chartColors"
           [options]="chartOptions"
