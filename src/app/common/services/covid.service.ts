@@ -19,6 +19,7 @@ export class CovidService {
   }
 
   getDialyCountryStats = () => {
+      // return this.http.get<any>("assets/json/data.json");
       return this.http.get<any>("https://api.covid19india.org/data.json");
   }
 

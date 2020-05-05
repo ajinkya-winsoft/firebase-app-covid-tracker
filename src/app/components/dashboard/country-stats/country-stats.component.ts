@@ -80,11 +80,12 @@ export class CountryStatsComponent implements OnInit, AfterViewInit {
 
       this.covidService.getDialyCountryStats()
           .subscribe((data) => {
-              const {cases_time_series} = data;
+              const {cases_time_series, tested} = data;
               this.latestData = cases_time_series.pop();
 
               const active = parseInt(this.latestData.totalconfirmed) - (parseInt(this.latestData.totalrecovered) + parseInt(this.latestData.totaldeceased));
               this.latestData["active"] = active;
+              this.latestData["totalSample"] = tested.pop().totalsamplestested;
           });
 
 
