@@ -1,0 +1,167 @@
+<mat-card *ngIf="chartReady">
+    <mat-card-header>
+        <mat-icon>bar_chart</mat-icon>
+        <mat-card-title>Lockdown</mat-card-title>
+        <mat-card-subtitle>summary</mat-card-subtitle>
+    </mat-card-header>
+    <div style="display: block; padding: 5px">
+      <canvas mdbChart
+          [chartType]="'bar'"
+          [datasets]="covidFianlaData"
+          [labels]="label"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [legend]="true"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+</mat-card>
+
+  <mat-expansion-panel class="mat-elevation-z4" style="margin: 10px 0px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Pre Lockdown
+      </mat-panel-title>
+      <mat-panel-description>
+        Initial Phase
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <p><i><b>30 Jan 2020</b></i></p>
+    <p> First case of corona virus was confirmed in India in the state of Kerala. </p>
+
+    <p><i><b>19 March 2020</b></i></p>
+    <p> India reported 500 cases and PM Modi coined the Idea of Janta Curfew. </p>
+
+    <p><i><b>22 March 2020</b></i></p>
+    <p>All Indians observed the <i>Janta Cerfew</i>, a 14-hour long curfew scheduled from 7 am to 9pm.</p>
+
+    <mat-form-field >
+      <mat-label>Confirmed</mat-label>
+      <input matInput disabled> 571
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Recovered</mat-label>
+      <input matInput disabled> 40
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Deceased</mat-label>
+      <input matInput disabled> 10
+    </mat-form-field>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel class="mat-elevation-z4" style="margin: 10px 0px">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          First Phase
+        </mat-panel-title>
+        <mat-panel-description>
+          25 March – 14 April
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <p><i><b>25 March 2020</b></i></p>
+      <p>India initiated the largest lockdown in the history and 1.3 billion people saw the empty roads for the first time. </p>
+
+      <p><i><b>26 March 2020</b></i></p>
+      <p> Finance minister Nirmala Sitharaman announced a ₹170,000 crore (US$24 billion) stimulus package to help those affected by the lockdown </p>
+
+      <p><i><b>29 March 2020</b></i></p>
+      <p>Indian Railways announced that it would start services for special parcel trains to transport essential goods </p>
+
+      <p><i><b>5 April 2020</b></i></p>
+      <p> Citizens all over India cheered and showed solidarity with the health workers, police, and all those fighting
+           the disease by switching off the electric lights at home from 9:00 p.m. to 9:09 p.m.for 9 minutes
+           and lighting diya, candle; and flashing torchlight and mobile flashlight. </p>
+
+      <p><i><b>18 April 2020</b></i></p>
+      <p>Towards the end of the initial period, the rate of growth of COVID infections in India had <span class="positive">significantly slowed</span>,
+           from a rate of <span class="negative"> doubling every three days </span> prior to the lockdown to one of <span class="positive">doubling every eight days </span></p>
+
+      <mat-card style="margin: 10px 0px"> First time in 167 years India's rail network had been suspended. </mat-card>
+      <mat-card style="margin: 10px 0px">{{percentRecovered}}% of the total case were reported in this phase. </mat-card>
+      <mat-card style="margin: 10px 0px">1325 people recovered as compared to only 10 in previous phase</mat-card>
+
+      <mat-form-field >
+        <mat-label>Confirmed</mat-label>
+        <input matInput disabled> 10914
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Recovered</mat-label>
+        <input matInput disabled> 1325
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Deceased</mat-label>
+        <input matInput disabled> 386
+      </mat-form-field>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="mat-elevation-z4" style="margin: 10px 0px">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Second Phase
+        </mat-panel-title>
+        <mat-panel-description>
+          Extension (15 April – 3 May)
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+       <p><i><b>16 April 2020</b></i></p>
+       <p>Lockdown areas were classified as
+           <br> <span class="negative">red zone</span>, indicating the presence of infection hotspots.
+           <br> <span class="neutral">orange zone</span>, indicating some infection.
+           <br> <span class="positive">green zone</span>, with no infections.</p>
+
+       <p><i><b>16 April 2020</b></i></p>
+       <p>The government also announced certain relaxations, allowing agricultural businesses, including dairy, aquaculture and plantations, as well as shops selling farming supplies, to open.</p>
+
+       <p><i><b>25 April 2020</b></i></p>
+       <p>Small retail shops were allowed to open with half the staff. Again social distancing norms were to be followed.</p>
+
+       <p><i><b>29 April 2020</b></i></p>
+       <p>The Ministry of Home Affairs issued guidelines for the states to allow inter-state movement of the stranded persons. </p>
+
+       <mat-form-field >
+         <mat-label>Confirmed</mat-label>
+         <input matInput disabled> 31293
+       </mat-form-field>
+
+       <mat-form-field>
+         <mat-label>Recovered</mat-label>
+         <input matInput disabled> 10398
+       </mat-form-field>
+
+       <mat-form-field>
+         <mat-label>Deceased</mat-label>
+         <input matInput disabled> 1067
+       </mat-form-field>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="mat-elevation-z4" style="margin: 10px 0px">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Third Phase
+        </mat-panel-title>
+        <mat-panel-description>
+          Extension (4 May – 17 May)
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <p><i><b>4 May 2020</b></i></p>
+      <p>The country has been split into 3 zones:
+          <br> <span class="negative">red zones (130 districts)</span>.
+          <br> <span class="neutral">orange zones (284 districts)</span>.
+          <br> <span class="positive">green zones (319 districts)</span>.</p>
+
+          <mat-card style="margin: 10px 0px"> <span class="negative">Red zones</span> are those with high coronavirus cases and a high doubling rate. </mat-card>
+          <mat-card style="margin: 10px 0px"> <span class="neutral">Orange zones</span> are those with comparatively fewer cases and green zones are those without any cases in the past 21 days. </mat-card>
+          <mat-card style="margin: 10px 0px"> Normal movement is permitted in <span class="positive">green zones</span> with buses limited to 50 percent capacity.</mat-card>
+          <mat-card style="margin: 10px 0px"> <span class="neutral">Orange zones</span> would allow only private and hired vehicles but no public transportation.</mat-card>
+          <mat-card style="margin: 10px 0px"> The zone classification would be revised once a week.</mat-card>
+  </mat-expansion-panel>

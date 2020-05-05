@@ -15,6 +15,7 @@ import { CountryStatsComponent } from './components/dashboard/country-stats/coun
 import { TileComponent } from './common/component/tile/tile.component';
 import { TreeComponent } from './components/tree/tree.component';
 import { RawDataComponent } from './components/raw-data/raw-data.component';
+import { LockdownSummaryComponent } from './components/lockdown-summary/lockdown-summary.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RawDataComponent } from './components/raw-data/raw-data.component';
     CountryStatsComponent,
     TileComponent,
     TreeComponent,
-    RawDataComponent
+    RawDataComponent,
+    LockdownSummaryComponent
   ],
   imports: [
     BrowserModule,
