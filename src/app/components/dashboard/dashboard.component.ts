@@ -111,7 +111,7 @@ export class DashboardComponent implements OnInit {
                 this.chartReady = false;
 
                 const arr: any[] = d.cases_time_series;
-                console.log(arr);
+                // console.log(arr);
                 const dd = arr.slice(arr.length-30, arr.length);
                 dd.forEach(data => {
                     this.covidFianlaData[0].data.push(parseInt(data.totalrecovered));
