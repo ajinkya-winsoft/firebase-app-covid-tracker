@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -14,6 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CountryStatsComponent } from './components/dashboard/country-stats/country-stats.component';
 import { TileComponent } from './common/component/tile/tile.component';
 import { TreeComponent } from './components/tree/tree.component';
+import { RawDataComponent } from './components/raw-data/raw-data.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TreeComponent } from './components/tree/tree.component';
     DashboardComponent,
     CountryStatsComponent,
     TileComponent,
-    TreeComponent
+    TreeComponent,
+    RawDataComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { TreeComponent } from './components/tree/tree.component';
     MaterialModule,
     MDBBootstrapModule.forRoot()
   ],
-  providers: [CovidService],
+  providers: [CovidService, Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

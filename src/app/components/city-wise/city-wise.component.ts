@@ -19,7 +19,7 @@ interface data {
 export class CityWiseComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['state', 'active', 'confirmed', 'recovered', 'deceased'];
   coviddata:  MatTableDataSource<any>;
-
+  isHidden: boolean = false;
   constructor(public covidService: CovidService) {}
 
   ngOnInit(): void {}
@@ -27,15 +27,12 @@ export class CityWiseComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
       this.covidService.getStateWiseData()
         .subscribe((data) => {
+            this.isHidden = false;
             let res = [];
-            console.log(data);
             const states = Object.keys(data);
-
-
             for (const state of states) {
                const districts = Object.keys( data[state].districtData);
                for (const district of districts) {
-                  // console.log(data[state].districtData[district]);
                   let d = data[state].districtData[district];
 
                   res.push({
@@ -48,18 +45,14 @@ export class CityWiseComponent implements OnInit, AfterViewInit {
               }
 
             }
-          this.coviddata = new MatTableDataSource(res) ;
-          console.log(this.coviddata);
+          this.coviddata = new MatTableDataSource(res);
+          this.isHidden = true;
         });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    console.log(filterValue);
-
     this.coviddata.filter = filterValue.trim().toLowerCase();
-    console.log(this.coviddata.filter);
-
   }
 
 }

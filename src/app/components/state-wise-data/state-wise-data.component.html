@@ -1,9 +1,11 @@
-<mat-form-field>
+<mat-progress-bar [hidden]="isHidden" mode="indeterminate" mode="query" color="accent"></mat-progress-bar>
+
+<mat-form-field [hidden]="!isHidden">
   <mat-label>  Search State</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Maharashtra">
 </mat-form-field>
 
-<table mat-table [dataSource]="coviddata" class="mat-elevation-z8">
+<table mat-table [hidden]="!isHidden" [dataSource]="coviddata" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->

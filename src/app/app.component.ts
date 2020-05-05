@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Title }     from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'firebase-app';
+
+    public constructor(private titleService: Title ) {}
+    title = 'firebase-app';
+
+    public setTitle( newTitle: string) {
+        this.titleService.setTitle( newTitle );
+    }
 
 }

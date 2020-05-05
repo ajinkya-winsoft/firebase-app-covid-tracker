@@ -1,1 +1,29 @@
-<p>tree works!</p>
+<mat-form-field style="padding: 10px">
+  <mat-label >Select Patient</mat-label>
+  <mat-select (selectionChange)="onChnage($event.value)" disableRipple>
+    <mat-option *ngFor="let p of patients" [value]="p">Patient #{{p}}</mat-option>
+    <!-- <mat-option value="1">Option 1</mat-option>
+    <mat-option value="2">Option 2</mat-option>
+    <mat-option value="3">Option 3</mat-option> -->
+  </mat-select>
+</mat-form-field>
+<div style="padding: 10px">
+    <p>To rende tree we are using subset of data. Hence all data is not shown.</p>
+    <p>Click on node to expand or collapse.</p>
+    <p>Some suggestions to start with #689, #2587, #182</p>
+</div>
+<!-- <mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Some Notes on Data.
+    </mat-panel-title>
+    <mat-panel-description>
+      Click to expand
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <p>To rende tree we are using subset of data. Hence all data is not shown.</p>
+  <p>Click on node to expand or collapse.</p>
+
+</mat-expansion-panel> -->
+<div id="tree"></div>

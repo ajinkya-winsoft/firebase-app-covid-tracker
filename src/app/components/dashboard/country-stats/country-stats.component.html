@@ -3,8 +3,29 @@
         <mat-card-title> India </mat-card-title>
         <mat-card-subtitle>as on {{latestData.date}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content id="content-mobile">
         <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile>
+                <app-tile [title]="'Active'" [type]="'positive'" [value]="latestData.active"></app-tile>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <app-tile [title]="'Recovered'" [type]="'positive'" [value]="latestData.totalrecovered" [change]="latestData.dailyrecovered"></app-tile>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <app-tile [title]="'Confirmed'" [type]="'danger'" [value]="latestData.totalconfirmed" [change]="latestData.dailyconfirmed"></app-tile>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <app-tile [title]="'Death'" [type]="'danger'" [value]="latestData.totaldeceased" [change]="latestData.dailydeceased"></app-tile>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+
+
+    <mat-card-content id="content-desktop">
+        <mat-grid-list cols="4" rowHeight="2:1">
             <mat-grid-tile>
                 <app-tile [title]="'Active'" [type]="'positive'" [value]="latestData.active"></app-tile>
             </mat-grid-tile>

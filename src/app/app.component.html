@@ -1,8 +1,17 @@
 <mat-toolbar color="primary">Covid Tracker
-    <span class="example-spacer"></span>
+    <!-- <span class="example-spacer"></span>
     <button mat-button [routerLink]="['/dashboard']">Graphs</button>
     <button mat-button [routerLink]="['/states']">State</button>
     <button mat-button [routerLink]="['/cities']">City</button>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button> -->
+     <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="setTitle('Home')" [routerLink]="['/dashboard']">Home</button>
+      <button mat-menu-item (click)="setTitle('State')" [routerLink]="['/states']">State</button>
+      <button mat-menu-item (click)="setTitle('City')" [routerLink]="['/cities']">City</button>
+      <button mat-menu-item (click)="setTitle('Tree')" [routerLink]="['/tree']">Tree</button>
+    </mat-menu>
 </mat-toolbar>
 
 

@@ -28,6 +28,7 @@ export class StateWiseDataComponent implements OnInit, AfterViewInit {
     // coviddata: any[] = [];
 
     coviddata:  MatTableDataSource<any>;
+    isHidden: boolean = false;
 
     constructor(public covidService: CovidService) {
 
@@ -36,21 +37,18 @@ export class StateWiseDataComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         this.covidService.getStateWiseData()
           .subscribe((data) => {
+              this.isHidden = false;
               let res = [];
-              console.log(data);
               const states = Object.keys(data);
 
 
               for (const state of states) {
-                  // console.log(data[state]);
-
                  let confirmed = 0;
                  let recovered = 0;
                  let active = 0;
                  let deceased = 0;
                  const districts = Object.keys( data[state].districtData);
                  for (const district of districts) {
-                    // console.log(data[state].districtData[district]);
                     let d = data[state].districtData[district];
                     confirmed = confirmed + d.confirmed;
                     recovered = recovered + d.recovered;
@@ -66,7 +64,7 @@ export class StateWiseDataComponent implements OnInit, AfterViewInit {
                 });
               }
             this.coviddata = new MatTableDataSource(res) ;
-            console.log(this.coviddata);
+            this.isHidden = true;
           });
     }
     displayedColumns: string[] = ['state', 'active', 'confirmed', 'recovered', 'deceased'];
@@ -78,11 +76,7 @@ export class StateWiseDataComponent implements OnInit, AfterViewInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    console.log(filterValue);
-
     this.coviddata.filter = filterValue.trim().toLowerCase();
-    console.log(this.coviddata.filter);
-
   }
 
 }

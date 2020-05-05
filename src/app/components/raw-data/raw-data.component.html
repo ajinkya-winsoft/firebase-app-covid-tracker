@@ -1,0 +1,89 @@
+<mat-progress-bar [hidden]="isHidden" mode="indeterminate" mode="query" color="accent"></mat-progress-bar>
+
+<table [hidden]="!isHidden" mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="patientnumber">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.patientnumber}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="agebracket">
+    <th mat-header-cell *matHeaderCellDef> Age </th>
+    <td mat-cell *matCellDef="let element"> {{element.agebracket}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="currentstatus">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element" [class]="getStyle(element.currentstatus)"> {{element.currentstatus}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="typeoftransmission">
+    <th mat-header-cell *matHeaderCellDef> Type of Trans. </th>
+    <td mat-cell *matCellDef="let element"> {{element.typeoftransmission}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="detecteddistrict">
+    <th mat-header-cell *matHeaderCellDef> District </th>
+    <td mat-cell *matCellDef="let element"> {{element.detecteddistrict}} </td>
+  </ng-container>
+
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+           <mat-list role="list">
+             <mat-list-item role="listitem"> Notes: {{element.backupnotes}}</mat-list-item>
+             <mat-list-item role="listitem">Health Status: {{element.currentstatus}}</mat-list-item>
+             <mat-list-item role="listitem" *ngIf="element.gender !== ''">Gender: {{element.gender}}</mat-list-item>
+             <mat-list-item role="listitem" *ngIf="element.contractedfromwhichpatientsuspected !== ''">Contracted from: {{element.contractedfromwhichpatientsuspected}}</mat-list-item>
+             <mat-list-item role="listitem" *ngIf="element.detecteddistrict !== ''">Location: {{element.detecteddistrict}}</mat-list-item>
+             <mat-list-item role="listitem" *ngIf="element.dateannounced !== ''">Date announced: {{element.dateannounced}}</mat-list-item>
+             <!-- <mat-list-item role="listitem" style=" width: 550px;  word-wrap: break-word;" *ngIf="element.source1 !== ''">Source1: {{element.source1}}</mat-list-item>
+             <mat-list-item role="listitem" style=" width: 550px;  word-wrap: break-word;" *ngIf="element.source2 !== ''">Source2: {{element.source2}}</mat-list-item>
+             <mat-list-item role="listitem" style=" width: 550px;  word-wrap: break-word;" *ngIf="element.source3 !== ''">Source3: {{element.source3}}</mat-list-item> -->
+             <mat-list-item role="listitem" *ngIf="element.detectedcity !== ''">City: {{element.detectedcity}}</mat-list-item>
+             <mat-list-item role="listitem" *ngIf="element.typeoftransmission !== ''">Type of Transminssion: {{element.typeoftransmission}}</mat-list-item>
+           </mat-list>
+           <!-- <mat-card>
+               <mat-card-header>
+                <mat-card-title>Details</mat-card-title>
+                <mat-card-subtitle>Patient # {{element.patientnumber}}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                  <mat-list role="list">
+                    <mat-list-item role="listitem"> Notes: {{element.backupnotes}}</mat-list-item>
+                    <mat-list-item role="listitem">Health Status: {{element.currentstatus}}</mat-list-item>
+                    <mat-list-item role="listitem" *ngIf="element.gender !== ''">Gender: {{element.gender}}</mat-list-item>
+                    <mat-list-item role="listitem" *ngIf="element.contractedfromwhichpatientsuspected !== ''">Contracted from: {{element.contractedfromwhichpatientsuspected}}</mat-list-item>
+                    <mat-list-item role="listitem" *ngIf="element.detecteddistrict !== ''">Location: {{element.detecteddistrict}}</mat-list-item>
+                    <mat-list-item role="listitem" style=" width: 550px;  word-wrap: break-word;" *ngIf="element.source1 !== ''">Source1: {{element.source1}}</mat-list-item>
+                    <mat-list-item role="listitem" style=" width: 550px;  word-wrap: break-word;" *ngIf="element.source2 !== ''">Source2: {{element.source2}}</mat-list-item>
+                    <mat-list-item role="listitem" style=" width: 550px;  word-wrap: break-word;" *ngIf="element.source3 !== ''">Source3: {{element.source3}}</mat-list-item>
+
+                    <mat-list-item role="listitem">{{element.detectedcity}}</mat-list-item>
+                  </mat-list>
+              </mat-card-content>
+           </mat-card> -->
+      </div>
+    </td>
+  </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true "></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay ;"
+          class="example-element-row"
+          [class.example-expanded-row]="expandedElement === element"
+           (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+</table>
